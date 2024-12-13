@@ -3,45 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact QR Code</title>
+    <title>Contact QR Codes</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+<div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl">
+    <!-- Tabs -->
+    <div class="flex mb-6 border-b">
+        <button
+                id="vcardTab"
+                class="px-4 py-2 text-gray-600 font-semibold border-b-2 border-blue-500 w-1/2 focus:outline-none"
+        >
+            vCard
+        </button>
+        <button
+                id="emailTab"
+                class="px-4 py-2 text-gray-600 font-semibold w-1/2 focus:outline-none"
+        >
+            Email
+        </button>
+    </div>
 
-<div class="bg-white p-8 rounded-lg shadow-md text-center max-w-6xl w-full">
-    <h1 class="text-2xl font-bold mb-6">Contact QR Codes</h1>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-32 justify-center items-start">
-        <div class="text-center">
-            <h2 class="text-xl mb-4">Send Email</h2>
-            <img src="email-qr.png" alt="Email QR Code" class="mx-auto mb-4 max-w-xs w-96 h-96 object-contain border-1 border-blue-100 rounded-lg">
+    <!-- QR Code Container -->
+    <div id="qrCodeContainer">
+        <!-- vCard QR Code -->
+        <div id="vcardQR" class="text-center">
+            <img
+                    src="vcard-qr.png"
+                    alt="vCard QR Code"
+                    class="p-6 bg-white border rounded w-96 h-96 object-contain mx-auto mb-6"
+            />
+            <div class="mb-4">
+                <p class="text-gray-600">Scan to add contact to your phone</p>
+            </div>
             <div class="flex justify-center space-x-4">
-                <a href="email-qr.png" download class="bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
-                     Download PNG
+                <a
+                        href="vcard-qr.png"
+                        download
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-9.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>PNG</span>
                 </a>
-                <a href="email-qr.svg" download class="bg-blue-700 hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-950 text-white font-bold py-2 px-4 rounded">
-                     Download SVG
+                <a
+                        href="vcard-qr.svg"
+                        download
+                        class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-9.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>SVG</span>
                 </a>
             </div>
         </div>
 
-        <div class="text-center">
-            <h2 class="text-xl mb-4">VCard</h2>
-            <img src="vcard-qr.png" alt="VCard QR Code" class="mx-auto mb-4 max-w-xs w-96 h-96 object-contain border-1 border-green-100 rounded-lg">
+        <!-- Email QR Code -->
+        <div id="emailQR" class="hidden text-center">
+            <img
+                    src="email-qr.png"
+                    alt="Email QR Code"
+                    class="p-6 bg-white border rounded w-96 h-96 object-contain mx-auto mb-6"
+            />
+            <div class="mb-4">
+                <p class="text-gray-600">Scan to send an email</p>
+            </div>
             <div class="flex justify-center space-x-4">
-                <a href="vcard-qr.png" download class="bg-green-500 hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
-                    Download PNG
+                <a
+                        href="email-qr.png"
+                        download
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-9.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>PNG</span>
                 </a>
-                <a href="vcard-qr.svg" download class="bg-green-700 hover:bg-green-800 dark:bg-green-900 dark:hover:bg-green-950 text-white font-bold py-2 px-4 rounded">
-                    Download SVG
+                <a
+                        href="email-qr.svg"
+                        download
+                        class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-9.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>SVG</span>
                 </a>
             </div>
         </div>
     </div>
-
-    <p class="text-gray-600 mt-6">Scan or download the QR codes to easily save contact information.</p>
 </div>
 
+<script>
+    // Tab Switching
+    document.addEventListener('DOMContentLoaded', () => {
+        const emailTab = document.getElementById('emailTab');
+        const vcardTab = document.getElementById('vcardTab');
+        const emailQR = document.getElementById('emailQR');
+        const vcardQR = document.getElementById('vcardQR');
+
+        // Tab click handlers
+        emailTab.addEventListener('click', () => {
+            emailTab.classList.add('border-b-2', 'border-blue-500');
+            vcardTab.classList.remove('border-b-2', 'border-blue-500');
+
+            emailQR.classList.remove('hidden');
+            vcardQR.classList.add('hidden');
+        });
+
+        vcardTab.addEventListener('click', () => {
+            vcardTab.classList.add('border-b-2', 'border-blue-500');
+            emailTab.classList.remove('border-b-2', 'border-blue-500');
+
+            vcardQR.classList.remove('hidden');
+            emailQR.classList.add('hidden');
+        });
+    });
+</script>
 </body>
 </html>
-
