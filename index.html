@@ -7,20 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-<div class="bg-white p-8 rounded-lg shadow-md text-center">
-    <h1 class="text-2xl font-bold mb-4">Scan to Contact</h1>
-    <img src="contact-qr-black.svg" alt="Contact QR Code" class="mx-auto mb-4 w-64 h-64 object-contain">
 
-    <div class="flex justify-center space-x-4">
-        <a href="contact-qr-black.png" download
-           class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
-            Download PNG
-        </a>
-        <a href="contact-qr-black.svg" download
-           class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
-            Download SVG
-        </a>
+<div class="bg-white p-8 rounded-lg shadow-md text-center max-w-6xl w-full">
+    <h1 class="text-2xl font-bold mb-6">Contact QR Codes</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-32 justify-center items-start">
+        <div class="text-center">
+            <h2 class="text-xl mb-4">Send Email</h2>
+            <img src="email-qr.png" alt="Email QR Code" class="mx-auto mb-4 max-w-xs w-96 h-96 object-contain border-1 border-blue-100 rounded-lg">
+            <div class="flex justify-center space-x-4">
+                <a href="email-qr.png" download class="bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+                     Download PNG
+                </a>
+                <a href="email-qr.svg" download class="bg-blue-700 hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-950 text-white font-bold py-2 px-4 rounded">
+                     Download SVG
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="text-xl mb-4">VCard</h2>
+            <img src="vcard-qr.png" alt="VCard QR Code" class="mx-auto mb-4 max-w-xs w-96 h-96 object-contain border-1 border-green-100 rounded-lg">
+            <div class="flex justify-center space-x-4">
+                <a href="vcard-qr.png" download class="bg-green-500 hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
+                    Download PNG
+                </a>
+                <a href="vcard-qr.svg" download class="bg-green-700 hover:bg-green-800 dark:bg-green-900 dark:hover:bg-green-950 text-white font-bold py-2 px-4 rounded">
+                    Download SVG
+                </a>
+            </div>
+        </div>
     </div>
+
+    <p class="text-gray-600 mt-6">Scan or download the QR codes to easily save contact information.</p>
 </div>
+
 </body>
 </html>
+
